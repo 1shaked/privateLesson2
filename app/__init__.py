@@ -16,11 +16,11 @@ from wtforms import StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired
 
 class Credentials(db.Model):
-    email = db.Column(db.String(100), primary_key=True)
+    email = db.Column(db.String(100))
     password = db.Column(db.String(100), nullable=False)
     name = db.Column(db.String(100),  nullable=True)
     site = db.Column(db.String(100),  nullable=False)
-
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     def __repr__(self):
         return f"Post('{self.email}', '{self.password}')"
 class CredentialsForm(FlaskForm):

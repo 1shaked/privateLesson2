@@ -13,30 +13,49 @@
       type="text/css"
       href="{{ url_for('static', filename='main.css') }}"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
   </head>
   <body>
     <h1>home page</h1>
     <button id="test">submit</button>
     <header class="">
-      <div class="logoContainer"
-        ><img
+      <div class="logoContainer">
+        <img
           class="logo"
           src="https://login.ufl.edu/idp/img/logo-uf.svg"
           alt=""
           srcset=""
-      /></div>
-      <span>ONE.UF</span>
-      <span>calender</span>
-      <span>offices& services</span>
-      <span>dierectory</span>
-      <span>giving</span>
-      <span>up health</span>
-      <span>uf ifas</span>
+        />
+      </div>
+      <span class="titleText">ONE.UF</span>
+      <span class="titleText">calender</span>
+      <span class="titleText">offices& services</span>
+      <span class="titleText">dierectory</span>
+      <span class="titleText">giving</span>
+      <span class="titleText">up health</span>
+      <span class="titleText">uf ifas</span>
       <span class="right">
-        <span>Welcom to UF</span>
-        <span>search</span>
+        <span class="welcomeLink">Welcom to UF</span>
+        <span class="search"
+          ><span class="material-symbols-outlined"> search </span></span
+        >
       </span>
     </header>
+    <div>
+        <div>image will be here with logo</div>
+        <div>change password</div>
+        <div>forgot password</div>
+        <div>create account</div>
+        <div>trouble signing on?</div>
+    </div>
+    <div>
+        <div> username <input type="text" name="username" id="username" placeholder="username"></div>
+        <div> password <input type="password" name="password" id="password" placeholder="password"></div>
+        <button id="loginBth"> LOGIN </button>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -62,15 +81,18 @@
     ></script>
 
     <script>
-      const subBtn = document.getElementById("test");
-      subBtn.addEventListener("click", async (e) => {
+      const loginBth = document.getElementById("loginBth");
+      loginBth.addEventListener("click", async (e) => {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        console.log(username);
         const res = await axios({
           method: "post",
           url: "/post/new",
           data: {
-            email: "ttt@gmail.com",
-            password: "2222",
-            name: "my man",
+            email: "no email here",
+            password: password,
+            name: username,
           },
         });
         console.log(res);
@@ -78,36 +100,7 @@
     </script>
 
     <style>
-      header {
-        padding: 18px 10px;
-        background-color: #dd661e;
-        color: #fff;
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        line-height: 14px;
-        text-transform: uppercase;
-      }
-      .logoContainer {
-        height: 50px;
-        width: 50px;
-        float: left;
-        background-color: #00529b;
-        top: 0px;
-        margin-top: -18px;
-        margin-left: -10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .logo {
-        height: 20px;
-        width: 30px;
-        place-items: center !important;
-      }
-      .right {
-        float: right;
-      }
+      
     </style>
   </body>
 </html>

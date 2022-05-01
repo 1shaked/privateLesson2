@@ -2,7 +2,7 @@ from app import db
 
 
 class Credentials(db.Model):
-    email = db.Column(db.String(100), primary_key=True)
+    email = db.Column(db.String(100),  nullable=False)
     password = db.Column(db.String(100), nullable=False)
     name = db.Column(db.String(100),  nullable=True)
 
