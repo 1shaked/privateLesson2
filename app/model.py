@@ -1,4 +1,4 @@
-from flaskblog import db
+from app import db
 
 
 class Credentials(db.Model):

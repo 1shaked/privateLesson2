@@ -1,7 +1,8 @@
+'''
 from flask import render_template, url_for, flash, redirect, request
-from flaskblog import app, db
-from flaskblog.forms import CredentialsForm
-from flaskblog.models import Credentials
+from . import app, db
+# from app.forms import CredentialsForm
+from app.models import Credentials
 
 
 @app.route("/")
@@ -19,3 +20,5 @@ def new_post():
         flash('Your Credentials has been created!', 'success')
         return redirect(url_for('home'))
     return redirect(url_for('home')) # you can send an error page or to the same page
+
+'''
