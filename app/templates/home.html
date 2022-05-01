@@ -1,21 +1,113 @@
-
-   
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
-</head>
-<body>
-    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='main.css') }}"
+    />
+  </head>
+  <body>
     <h1>home page</h1>
+    <button id="test">submit</button>
+    <header class="">
+      <div class="logoContainer"
+        ><img
+          class="logo"
+          src="https://login.ufl.edu/idp/img/logo-uf.svg"
+          alt=""
+          srcset=""
+      /></div>
+      <span>ONE.UF</span>
+      <span>calender</span>
+      <span>offices& services</span>
+      <span>dierectory</span>
+      <span>giving</span>
+      <span>up health</span>
+      <span>uf ifas</span>
+      <span class="right">
+        <span>Welcom to UF</span>
+        <span>search</span>
+      </span>
+    </header>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+      integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const subBtn = document.getElementById("test");
+      subBtn.addEventListener("click", async (e) => {
+        const res = await axios({
+          method: "post",
+          url: "/post/new",
+          data: {
+            email: "ttt@gmail.com",
+            password: "2222",
+            name: "my man",
+          },
+        });
+        console.log(res);
+      });
+    </script>
+
+    <style>
+      header {
+        padding: 18px 10px;
+        background-color: #dd661e;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        line-height: 14px;
+        text-transform: uppercase;
+      }
+      .logoContainer {
+        height: 50px;
+        width: 50px;
+        float: left;
+        background-color: #00529b;
+        top: 0px;
+        margin-top: -18px;
+        margin-left: -10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .logo {
+        height: 20px;
+        width: 30px;
+        place-items: center !important;
+      }
+      .right {
+        float: right;
+      }
+    </style>
+  </body>
 </html>
